@@ -39,7 +39,6 @@ platformdirs==2.2.0
 prov==2.0.0
 ptyprocess==0.7.0
 pycosat==0.6.3
-pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
 pycryptodome==3.10.1
 pydot==1.4.2
 Pygments==2.10.0
