@@ -58,16 +58,3 @@ if __name__ == "__main__":
 
     with open("extracted.json", "w") as f:
         json.dump(t.get_timetable(), f, indent=3)
-
-#extract subjects
-# urniki = [json.load(open(path, "r")) for path in ["timetable_a.json", "timetable_b.json"]]
-
-# subjects =["ru(ŠP)","slo1/švz","slo2/švz"]
-# for urnik in urniki:
-#     for cl in urnik.values():
-#         for day in cl:
-#             for subject in day:
-#                 if not subject in subjects and subject:
-#                     subjects.append(subject)
-
-# json.dump(subjects, open("subjects.json", "w"), indent=3)
