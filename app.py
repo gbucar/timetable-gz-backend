@@ -8,11 +8,17 @@ app = flask.Flask(__name__)
 api = Api(app)
 t = TimetableFetch()
 
+class Matura(Resource):
+    def get(self):
+        return t.matura, 200
+
+        
 class Timetable(Resource):
     def get(self):
-        return t.get_text(), 200
+        return t.get_timetable(), 200
 
-api.add_resource(Timetable, "/api")
+api.add_resource(Matura, "/matura")
+api.add_resource(Timetable, "/timetable")
 
 
 @app.route('/', methods=['GET'])
