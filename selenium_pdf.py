@@ -42,7 +42,7 @@ class TimetableFetch:
 
     def get_text(self):
         d = dt.now().strftime("%m")
-        self.driver.get("https://gz.zelimlje.si/wp-content/uploads/sites/2/2021/{d}/Urnik_teden.pdf")
+        self.driver.get(f"https://gz.zelimlje.si/wp-content/uploads/sites/2/2021/{d}/Urnik_teden.pdf")
         time.sleep(2)
         self.driver.find_element_by_xpath("/html").send_keys(Keys.CONTROL, "a")
         self.driver.find_element_by_xpath("/html").send_keys(Keys.CONTROL, "c")
