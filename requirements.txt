@@ -1,7 +1,5 @@
 selenium
-time
 pyperclip
-json
 geckodriver
 flask
 flask_restful
