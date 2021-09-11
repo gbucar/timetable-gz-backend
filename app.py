@@ -10,7 +10,7 @@ t = TimetableFetch()
 
 class Timetable(Resource):
     def get(self):
-        return t.matura
+        return t.get_text()
 
 api.add_resource(Timetable, "/api")
 
