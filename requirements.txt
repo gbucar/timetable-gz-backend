@@ -1,4 +1,94 @@
-flask
-selenium
-pyperclip
-flask_restful
+aiofiles==0.7.0
+aniso8601==9.0.1
+anyio==3.3.0
+asgiref==3.4.1
+backports.entry-points-selectable==1.1.0
+brotlipy==0.7.0
+buildozer==1.2.0
+certifi==2021.5.30
+cffi @ file:///C:/ci/cffi_1625831756778/work
+chardet @ file:///C:/ci/chardet_1607706937985/work
+ci-info==0.2.0
+click==8.0.1
+colorama==0.4.4
+conda==4.10.3
+conda-package-handling @ file:///C:/ci/conda-package-handling_1618262410900/work
+configobj==5.0.6
+configparser==5.0.2
+cryptography @ file:///C:/ci/cryptography_1616769504165/work
+distlib==0.3.2
+docutils==0.17.1
+etelemetry==0.2.2
+filelock==3.0.12
+fitz==0.0.1.dev2
+Flask==2.0.1
+Flask-RESTful==0.3.9
+frontend==0.0.3
+future==0.18.2
+h11==0.12.0
+httplib2==0.19.1
+idna @ file:///home/linux1/recipes/ci/idna_1610986105248/work
+isodate==0.6.0
+itsdangerous==2.0.1
+Jinja2==3.0.1
+Kivy==2.0.0
+kivy-deps.angle==0.3.0
+kivy-deps.glew==0.3.0
+kivy-deps.sdl2==0.3.1
+Kivy-Garden==0.1.4
+lxml==4.6.3
+MarkupSafe==2.0.1
+menuinst==1.4.16
+networkx==2.6.2
+nibabel==3.2.1
+nipype==1.6.1
+numpy==1.21.2
+packaging==21.0
+pandas==1.3.2
+pathlib==1.0.1
+pdf2image==1.16.0
+pdfminer.six==20200517
+pdfplumber==0.5.28
+pexpect==4.8.0
+Pillow==8.3.1
+platformdirs==2.2.0
+prov==2.0.0
+ptyprocess==0.7.0
+pycosat==0.6.3
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+pycryptodome==3.10.1
+pydot==1.4.2
+Pygments==2.10.0
+pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
+pyparsing==2.4.7
+PyPDF2==1.26.0
+PyPDF3==1.0.5
+pyperclip==1.8.2
+pypiwin32==223
+PySocks @ file:///C:/ci/pysocks_1605307512533/work
+pytesseract==0.3.8
+python-dateutil==2.8.2
+pytz==2021.1
+pywin32==228
+pyxnat==1.4
+rdflib==6.0.0
+requests @ file:///tmp/build/80754af9/requests_1608241421344/work
+ruamel-yaml-conda @ file:///C:/ci/ruamel_yaml_1616016898638/work
+scipy==1.7.1
+selenium==3.141.0
+sh==1.14.2
+simplejson==3.17.5
+six @ file:///tmp/build/80754af9/six_1623709665295/work
+sniffio==1.2.0
+sortedcontainers==2.4.0
+starlette==0.16.0
+tika==1.24
+tqdm @ file:///tmp/build/80754af9/tqdm_1625563689033/work
+traits==6.2.0
+urllib3 @ file:///tmp/build/80754af9/urllib3_1625084269274/work
+uvicorn==0.15.0
+virtualenv==20.7.2
+Wand==0.6.7
+Werkzeug==2.0.1
+win-inet-pton @ file:///C:/ci/win_inet_pton_1605306162074/work
+wincertstore==0.2
