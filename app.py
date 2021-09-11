@@ -6,13 +6,13 @@ from selenium_pdf import TimetableFetch
 
 app = flask.Flask(__name__)
 api = Api(app)
-t = TimetableFetch()
+# t = TimetableFetch()
 
-class Timetable(Resource):
-    def get(self):
-        return t.matura, 200
+# class Timetable(Resource):
+#     def get(self):
+#         return t.matura, 200
 
-api.add_resource(Timetable, "/api")
+# api.add_resource(Timetable, "/api")
 
 
 @app.route('/', methods=['GET'])
