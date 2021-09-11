@@ -61,7 +61,7 @@ class TimetableFetch:
             
     def extract_timetable(self,school_class, next_class, text):
 
-        subjects = json.load(open("subjects.json", "r", encoding="utf-8"))
+        subjects = []
         timetable = []
         for day in text.split(school_class)[1:]:
             day = day.split(next_class)[0].replace("ru (ŠP)", "ru(ŠP)").strip()
