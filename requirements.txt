@@ -10,7 +10,6 @@ ci-info==0.2.0
 click==8.0.1
 colorama==0.4.4
 conda==4.3.16
-conda-package-handling @ file:///C:/ci/conda-package-handling_1618262410900/work
 configobj==5.0.6
 configparser==5.0.2
 cryptography @ file:///C:/ci/cryptography_1616769504165/work
