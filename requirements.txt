@@ -12,7 +12,6 @@ colorama==0.4.4
 conda==4.3.16
 configobj==5.0.6
 configparser==5.0.2
-cryptography @ file:///C:/ci/cryptography_1616769504165/work
 distlib==0.3.2
 docutils==0.17.1
 etelemetry==0.2.2
@@ -24,7 +23,6 @@ frontend==0.0.3
 future==0.18.2
 h11==0.12.0
 httplib2==0.19.1
-idna @ file:///home/linux1/recipes/ci/idna_1610986105248/work
 isodate==0.6.0
 itsdangerous==2.0.1
 Jinja2==3.0.1
