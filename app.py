@@ -18,3 +18,6 @@ api.add_resource(Timetable, "/api")
 @app.route('/', methods=['GET'])
 def home():
     return "HELLO WORLD"
+
+if __name__ == "__main__":
+    app.run()
