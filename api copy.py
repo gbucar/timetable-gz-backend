@@ -9,6 +9,9 @@ class Timetable(Resource):
     def __init__(self):
         self.t = TimetableFetch()
     def get(self):
-        return "self.t.get_timetable(), 200"
+        return self.t.get_timetable(), 200
 
-api.add_resource(Timetable, "/")
+api.add_resource(Timetable, "/api")
+
+if __name__ == "__main__":
+    app.run(debug=True)
