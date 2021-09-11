@@ -1,5 +1,4 @@
 selenium
 pyperclip
-geckodriver
 flask
 flask_restful
