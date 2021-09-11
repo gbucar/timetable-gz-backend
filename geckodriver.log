@@ -1,1 +1,11 @@
 1631397239219	geckodriver	INFO	Listening on 127.0.0.1:53107
+1631397242273	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Gregor\\AppData\\Local\\Temp\\rust_mozprofilejuZXLF"
+*** You are running in headless mode.
+1631397242857	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Gregor\\AppData\\Local\\Temp\\rust_mozprofilejuZXLF\\search.json.mozlz4", (void 0)))
+1631397244616	Marionette	INFO	Listening on port 53115
+1631397244969	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
