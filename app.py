@@ -5,7 +5,6 @@ from flask import request
 from selenium_pdf import TimetableFetch
 
 app = flask.Flask(__name__)
-api = Api(app)
 t = TimetableFetch()
 
 # class Timetable(Resource):
