@@ -1,4 +1,4 @@
 flask_restful
 flask
 gunicorn
-pdfplumber
+requests
