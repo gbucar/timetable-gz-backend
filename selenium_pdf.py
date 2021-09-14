@@ -1,6 +1,7 @@
 import json
 import pdfplumber
 import requests
+from datetime import datetime as dt
 
 
 class TimetableFetch:
@@ -15,7 +16,8 @@ class TimetableFetch:
         return timetable
 
     def get_text(self):
-        content = requests.get("https://gz.zelimlje.si/wp-content/uploads/sites/2/2021/09/Urnik_teden.pdf").content
+        d = dt.now()
+        content = requests.get("https://gz.zelimlje.si/wp-content/uploads/sites/2/2021/" + d.strftime("%m") + "/Urnik_teden.pdf").content
 
         with open("tmp.pdf", "wb") as f:
             f.write(content)
