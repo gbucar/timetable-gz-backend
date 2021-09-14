@@ -2,3 +2,4 @@ flask_restful
 flask
 gunicorn
 requests
+pdfplumber
