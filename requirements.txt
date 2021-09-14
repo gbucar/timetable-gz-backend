@@ -1,5 +1,4 @@
 flask_restful
 flask
 gunicorn
-selenium
-pyperclip
+pdfplumber
