@@ -16,7 +16,7 @@ t = TimetableFetch()
 
 @app.route('/', methods=['GET'])
 def home():
-    return "HELLO WORLD"
+    return t.get_timetable()
 
 if __name__ == "__main__":
     app.run()
