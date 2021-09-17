@@ -50,13 +50,20 @@ class TimetableFetch:
             for subject in day.split(" "):
                 subject = subject.strip()
                 if subject:
-                    if subject in subjects or any([sub in subjects for sub in subject.split("/")]):
+                    if subject in subjects or any([sub in subjects for sub in subject.split("/")]) and len(subject.split("/")) < 2:
                         day_timetable.append(subject)
                     elif subject not in self.ignored and subject not in self.matura:
                         self.unknown.append(subject)
             timetable.append(day_timetable)
         return timetable
 
+class PersonalizedTimetable:
+    def __init__(self):
+        self.fetch = TimetableFetch()
+        
+    def get_timetable(self, first_name, second_name):
+
+        pass
 if __name__ == "__main__":
     t =TimetableFetch()
 
