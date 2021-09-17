@@ -14,15 +14,30 @@ t = TimetableFetch()
 class BaseTimetable(Resource):
     def get(self):
         parser = reqparse.RequestParser()
-        parser.add_argument("f_name")
-        parser.add_argument("s_name")
+        parser.add_argument("first_name")
+        parser.add_argument("second_name")
         parser.add_argument("online")
+        parser.add_argument("class")
         print(parser.parse_args())
-        first_name, second_name, online = parser.parse_args().values()
+        first_name, second_name, online, class_name = parser.parse_args().values()
         online = online == "1"
-        return p.get_personalized_timetable(first_name, second_name, online)
+        return {
+            "full_name": first_name.strip().capitalize() + " " + second_name.strip().capitalize(),
+            "gender": p.get_gender(first_name, second_name),
+            "timetable": p.get_personalized_timetable(first_name, second_name, online)
+        }
+
+class GetClass(Resource):
+    def get(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument("first_name")
+        parser.add_argument("second_name")
+        first_name, second_name = parser.parse_args().values()
+        return p.get_class(first_name, second_name)
 
 api.add_resource(BaseTimetable, "/personalized")
+
+api.add_resource(GetClass, "/class")
 
 @app.route('/', methods=['GET'])
 def home():

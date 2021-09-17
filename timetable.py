@@ -68,12 +68,14 @@ class PersonalizedTimetable:
     def easy_compare(self, str):
         return str.strip().lower().replace("č", "c").replace("š", "s").replace("ž", "z")
 
-    def formate_timetable(self, first_name, second_name, timetable):
-        className = self.get_class(first_name, second_name)
-        class_timetable = timetable[className]
-        person_matura_timetable = self.matura_timetable[self.easy_compare(first_name) + " " + self.easy_compare(second_name)]
+    def formate_timetable(self, first_name, second_name, timetable, class_name=False):
+        if not class_name:
+            class_name = self.get_class(first_name, second_name)[0]
+            
+        class_timetable = timetable[class_name]
 
-        if className.split(".")[0] == "4":
+        if class_name.split(".")[0] == "4":
+            person_matura_timetable = self.matura_timetable[self.easy_compare(first_name) + " " + self.easy_compare(second_name)]
             return self.formate_matura_timetable(class_timetable, person_matura_timetable)
         
         return class_timetable
@@ -85,11 +87,16 @@ class PersonalizedTimetable:
         if len(first_name.split(" "))==2:
             middle_name = first_name.split(" ")[1][0] + ". "
         name_in_classes = first_name.split(" ")[0] + " " + middle_name + second_name
-        for class_name in self.classes:
-            if name_in_classes in self.easy_compare(self.classes[class_name]):
-                return class_name
-        return "Error"
+        found_classes = []
+        for class_name, name_list in self.classes.items():
+            for name in name_list:
+                if name_in_classes in self.easy_compare(name) and class_name not in found_classes:
+                    found_classes.append(class_name)
+        return found_classes
 
+    def get_gender(self, first_name, second_name):
+        return self.matura_timetable[self.easy_compare(first_name) + " " + self.easy_compare(second_name)]["gender"]
+    
     def formate_matura_timetable(self, timetable, matura_timetable):
         person_timetable = []
         for i, day in enumerate(timetable):
@@ -108,18 +115,18 @@ class PersonalizedTimetable:
             person_timetable.append(day)
         return person_timetable
 
-    def get_personalized_timetable(self, first_name, second_name, online=True):
+    def get_personalized_timetable(self, first_name, second_name, class_name = False, online=True):
         timetable = json.load(open("./assets/timetable_a.json", "r"))
         if online:
             timetable = self.t.get_timetable()
-        return self.formate_timetable(first_name, second_name, timetable)
+        return self.formate_timetable(first_name, second_name, timetable, class_name)
 
 if __name__ == "__main__":
     t =TimetableFetch()
 
     p = PersonalizedTimetable()
-    print(p.get_class("neža", "dulč"))
-    print(p.formate_timetable("neža", "dulč", t.get_timetable()))
+    print(p.get_class("aja", "knež"))
+    print(p.formate_timetable("aja", "knez", t.get_timetable()))
 
 
     # with open("extracted.json", "w") as f:
