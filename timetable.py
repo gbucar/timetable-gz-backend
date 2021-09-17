@@ -42,7 +42,7 @@ class TimetableFetch:
         return timetable
             
     def extract_timetable(self,school_class, next_class, text):
-        subjects = json.load(open("subjects.json", "r"))
+        subjects = json.load(open("./assets/subjects.json", "r"))
         timetable = []
         for day in text.split(school_class)[1:]:
             day = day.split(next_class)[0].replace("ru (ŠP)", "ru(ŠP)").strip()
@@ -59,13 +59,68 @@ class TimetableFetch:
 
 class PersonalizedTimetable:
     def __init__(self):
-        self.fetch = TimetableFetch()
-        
-    def get_timetable(self, first_name, second_name):
+        self.t=TimetableFetch()
+        self.classes = json.load(open("./assets/classes.json", "r"))
+        self.matura_timetable = json.load(open("./assets/matura_timetable.json", "r"))
+        self.subjects = json.load(open("./assets/subjects.json", "r"))
+        self.timetable_a = json.load(open("./assets/timetable_a.json", "r"))
 
-        pass
+    def easy_compare(self, str):
+        return str.strip().lower().replace("č", "c").replace("š", "s").replace("ž", "z")
+
+    def formate_timetable(self, first_name, second_name, timetable):
+        className = self.get_class(first_name, second_name)
+        class_timetable = timetable[className]
+        person_matura_timetable = self.matura_timetable[self.easy_compare(first_name) + " " + self.easy_compare(second_name)]
+
+        if className.split(".")[0] == "4":
+            return self.formate_matura_timetable(class_timetable, person_matura_timetable)
+        
+        return class_timetable
+
+    def get_class(self,first_name, second_name):
+        first_name = self.easy_compare(first_name)
+        second_name = self.easy_compare(second_name)
+        middle_name = ""
+        if len(first_name.split(" "))==2:
+            middle_name = first_name.split(" ")[1][0] + ". "
+        name_in_classes = first_name.split(" ")[0] + " " + middle_name + second_name
+        for class_name in self.classes:
+            if name_in_classes in self.easy_compare(self.classes[class_name]):
+                return class_name
+        return "Error"
+
+    def formate_matura_timetable(self, timetable, matura_timetable):
+        person_timetable = []
+        for i, day in enumerate(timetable):
+            if day:
+                if i == 0:
+                    print([matura_timetable["subjects"][0]], day)
+                    day = [matura_timetable["subjects"][0]] + day
+                if i == 1:
+                    day = day + matura_timetable["subjects"][1:4]
+                if i == 2:
+                    day = matura_timetable["subjects"][4:6] + day + [matura_timetable["subjects"][-1]]
+                if i == 3:
+                    day = [matura_timetable["subjects"][9]] + matura_timetable["subjects"][6:8] + day + [matura_timetable["subjects"][8]]
+                if i == 4:
+                    day = day + matura_timetable["subjects"][10:12]
+            person_timetable.append(day)
+        return person_timetable
+
+    def get_personalized_timetable(self, first_name, second_name, online=True):
+        timetable = json.load(open("./assets/timetable_a.json", "r"))
+        if online:
+            timetable = self.t.get_timetable()
+        return self.formate_timetable(first_name, second_name, timetable)
+
 if __name__ == "__main__":
     t =TimetableFetch()
 
-    with open("extracted.json", "w") as f:
-        json.dump(t.get_timetable(), f, indent=3)
+    p = PersonalizedTimetable()
+    print(p.get_class("neža", "dulč"))
+    print(p.formate_timetable("neža", "dulč", t.get_timetable()))
+
+
+    # with open("extracted.json", "w") as f:
+    #     json.dump(t.get_timetable(), f, indent=3)
