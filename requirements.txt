@@ -4,3 +4,4 @@ gunicorn
 requests
 pdfplumber
 flask_cors
+yagmail

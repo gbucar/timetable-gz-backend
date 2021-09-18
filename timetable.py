@@ -12,7 +12,7 @@ class TimetableFetch:
    
     def get_timetable(self):
         timetable =  self.extract_json(self.get_text())
-        # [print("unknown subject: "+subject) for subject in self.unknown if not subject in self.ignored]
+        [print("unknown subject: "+subject) for subject in self.unknown if not subject in self.ignored]
         return timetable
 
     def get_text(self):
@@ -50,7 +50,7 @@ class TimetableFetch:
             for subject in day.split(" "):
                 subject = subject.strip()
                 if subject:
-                    if subject in subjects or any([sub in subjects for sub in subject.split("/")]) and len(subject.split("/")) <= 2:
+                    if subject in subjects or any([sub in subjects for sub in subject.split("/")]) and len(subject.split("/")) < 2:
                         day_timetable.append(subject)
                     elif subject not in self.ignored and subject not in self.matura:
                         self.unknown.append(subject)
@@ -105,6 +105,7 @@ class PersonalizedTimetable:
         for i, day in enumerate(timetable):
             if day:
                 if i == 0:
+                    print([matura_timetable["subjects"][0]], day)
                     day = [matura_timetable["subjects"][0]] + day
                 if i == 1:
                     day = day + matura_timetable["subjects"][1:4]
