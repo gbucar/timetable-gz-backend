@@ -50,7 +50,7 @@ class TimetableFetch:
             for subject in day.split(" "):
                 subject = subject.strip()
                 if subject:
-                    if subject in subjects or any([sub in subjects for sub in subject.split("/")]) and len(subject.split("/")) < 2:
+                    if subject in subjects or any([sub in subjects for sub in subject.split("/")]) and len(subject.split("/")) <= 2:
                         day_timetable.append(subject)
                     elif subject not in self.ignored and subject not in self.matura:
                         self.unknown.append(subject)
