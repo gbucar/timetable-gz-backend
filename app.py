@@ -22,9 +22,10 @@ class BaseTimetable(Resource):
         first_name, second_name, online, class_name = parser.parse_args().values()
         online = online == "1"
         return {
-            "full_name": first_name.strip().capitalize() + " " + second_name.strip().capitalize(),
+            "fullName": first_name.strip().capitalize() + " " + second_name.strip().capitalize(),
             "gender": p.get_gender(first_name, second_name),
-            "timetable": p.get_personalized_timetable(first_name, second_name, online)
+            "timetable": p.get_personalized_timetable(first_name, second_name, class_name=class_name ,online=online),
+            "providedClass": class_name
         }
 
 class GetClass(Resource):
