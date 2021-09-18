@@ -95,7 +95,10 @@ class PersonalizedTimetable:
         return found_classes
 
     def get_gender(self, first_name, second_name):
-        return self.matura_timetable[self.easy_compare(first_name) + " " + self.easy_compare(second_name)]["gender"]
+        try:
+            return self.matura_timetable[self.easy_compare(first_name) + " " + self.easy_compare(second_name)]["gender"]
+        except:
+            return "r"
     
     def formate_matura_timetable(self, timetable, matura_timetable):
         person_timetable = []
