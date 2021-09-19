@@ -3,3 +3,4 @@ geckodriver.log
 tmp.pdf
 deploy.bat
 password.txt
+__pycache__/
