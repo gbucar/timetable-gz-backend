@@ -105,7 +105,6 @@ class PersonalizedTimetable:
         for i, day in enumerate(timetable):
             if day:
                 if i == 0:
-                    print([matura_timetable["subjects"][0]], day)
                     day = [matura_timetable["subjects"][0]] + day
                 if i == 1:
                     day = day + matura_timetable["subjects"][1:4]
